@@ -1,0 +1,14 @@
+[
+    {
+        "id": 3,
+        "name": "CMPT301",
+        "dept": "Computer Science",
+        "time": 8
+    },
+    {
+        "id": 1,
+        "name": "CMPT101",
+        "dept": "Computer Science",
+        "time": 8
+    }
+]
