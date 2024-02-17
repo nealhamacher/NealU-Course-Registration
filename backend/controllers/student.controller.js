@@ -30,7 +30,6 @@ const addCourseToStudent = async (req, res) => {
             id,
             course
         );
-        console.log(student);
         if (student) {
             res.status(200).send(student);
         }
