@@ -5,8 +5,50 @@ const getStudentsFromRepo = async () => {
         const students = await Student.find().sort("id");
         return students;
     } catch (e) {
-        throw Error("Error while getting students")
+        throw Error(e.message)
+    }
+};
+
+const addStudentToRepo = async (info) => {
+    try {
+        let student = await new Student(info);
+        student = student.save();
+        return student;
+    } catch (e) {
+        throw Error(e.message)
+    }
+};
+
+const addCourseToStudentInRepo = async (id, course) => {
+    try {
+        console.log(id);
+        console.log(course);
+        let student = await Student.findOneAndUpdate(
+            id,
+            { $push: {courses : course}},
+            { new: true },
+        );
+        console.log(student);
+        return student;
+    } catch (e) {
+        throw Error(e.message)
     }
 }
 
-export { getStudentsFromRepo };
+const dropCourseFromStudentInRepo = async (id, course) => {
+    try {
+        let student = await Student.findOne(id);
+        console.log(student);
+        let modCourses = student.courses.filter(c => c !== course);
+        student = await Student.findOneAndUpdate(
+            id,
+            { courses: modCourses }
+        );
+        return student;
+    } catch (e) {
+        throw Error(e.message);
+    }
+}
+
+export { getStudentsFromRepo, addStudentToRepo, addCourseToStudentInRepo, 
+    dropCourseFromStudentInRepo };

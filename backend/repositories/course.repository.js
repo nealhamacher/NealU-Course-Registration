@@ -5,8 +5,18 @@ const getCoursesFromRepo = async () => {
         const courses = await Course.find().sort("id");
         return courses;
     } catch (e) {
-        throw Error("Error while getting courses");
+        throw Error(e.message);
     }
 };
 
-export { getCoursesFromRepo };
+const addCourseToRepo = async (info) => {
+    try {
+        let course = new Course(info);
+        course = course.save();
+        return course;
+    } catch (e) {
+        throw Error(e.message);
+    }
+};
+
+export { getCoursesFromRepo, addCourseToRepo };
