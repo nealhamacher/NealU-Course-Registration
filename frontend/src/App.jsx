@@ -68,8 +68,10 @@ function App() {
           </Dropdown.Toggle>
           <Dropdown.Menu className='dropdown'>
             {students.map(student => (
-            <Dropdown.Item onClick={()=>setSelectedStudent(student)}>{student.name}</Dropdown.Item>
-            ))}
+              <Dropdown.Item onClick={()=>setSelectedStudent(student)}>
+                {student.name}
+              </Dropdown.Item>
+              ))}
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -82,7 +84,7 @@ function App() {
             </Tab>
             <Tab eventKey="course-registration" title="Course Registration">
               <div className='content'>
-                <CourseRegistration courseList={courses} student={selectedStudent} />
+                <CourseRegistration courseList={courses} student={selectedStudent} forceUpdate={forceUpdate} />
               </div>
             </Tab>
           </Tabs>

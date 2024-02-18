@@ -18,10 +18,9 @@ const dropCourse = async ({student, course}) => {
 
     const _ = await axios.patch(url, course, config);
     student.courses = student.courses.filter(c => c != course) //Open seat in database
-    terminal.log(`length here ${student.courses.length}`)
     return;
-  } catch (e) {
-    terminal.log(e.message)
+  } catch (error) {
+    throw Error(error)
   }
 }
 
@@ -43,8 +42,8 @@ const freeSeat = async ({course}) => {
     const _ = await axios.patch(url, {}, config);
     course.capacity += 1;
     return;
-  } catch (e) {
-    throw Error(e);
+  } catch (error) {
+    throw Error(error);
   }
 }
 
@@ -52,11 +51,10 @@ const drop = async ({student, courseToDrop, forceUpdate}) => {
   try {
     await dropCourse({student: student, course: courseToDrop});
     await freeSeat({course: courseToDrop});
-    terminal.log(`length in drop: ${student.courses.length}`)
-    forceUpdate;
+    forceUpdate();
     
-  } catch (e) {
-    terminal.log(e.message);
+  } catch (error) {
+    console.error(`Error dropping course: ${error.message}`);
   }
 }
 

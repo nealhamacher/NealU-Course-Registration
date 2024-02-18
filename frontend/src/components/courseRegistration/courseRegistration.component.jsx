@@ -3,7 +3,7 @@ import EnrollButton from './enrollButton.component';
 
 import './courseRegistration.styles.css'
 
-const CourseRegistration = ({ courseList, student }) => {
+const CourseRegistration = ({ courseList, student, forceUpdate }) => {
   if(student == "") {
     return (
       <div className="course-registration-blank">
@@ -37,7 +37,8 @@ const CourseRegistration = ({ courseList, student }) => {
                   <td>{course.time}:00</td>
                   <td>{course.capacity}</td>
                   <td><EnrollButton student={student} course={course} 
-                                    enrolledCourses={student.courses} /></td>
+                                    enrolledCourses={student.courses}
+                                    forceUpdate={forceUpdate} /></td>
                 </tr>
               ))}
             </tbody>

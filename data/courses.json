@@ -8,23 +8,37 @@
     },
     {
         "id": 2,
-        "name": "MATH209",
-        "dept": "Math & Stats",
-        "time": 10,
-        "capacity" : 1
+        "name": "CMPT360",
+        "dept": "Computer Science",
+        "time": 13,
+        "capacity": 1
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "ENGL101",
         "dept": "English",
         "time": 9,
         "capacity" : 2
     },
     {
-        "id": 3,
-        "name": "CMPT360",
+        "id": 4,
+        "name": "MATH114",
+        "dept": "Math & Stats",
+        "time": 11,
+        "capacity" : 1
+    },
+    {
+        "id": 5,
+        "name": "MATH209",
+        "dept": "Math & Stats",
+        "time": 10,
+        "capacity" : 1
+    },
+    {
+        "id": 6,
+        "name": "STAT151",
         "dept": "Math & Stats",
         "time": 13,
-        "capacity": 1
+        "capacity" : 2
     }
 ]

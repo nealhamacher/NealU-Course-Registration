@@ -51,7 +51,6 @@ const StudentDetails = ({ student, forceUpdate }) => {
                 <th>Department</th>
                 <th>Time</th>
                 <th>Drop Course</th>
-                <th>TEST</th>
               </tr>
             </thead>
             <tbody className='enrolled-table-body'>
@@ -65,7 +64,6 @@ const StudentDetails = ({ student, forceUpdate }) => {
                     onClick={() => drop({student: student, courseToDrop: course, forceUpdate: forceUpdate})}>
                   Drop
                 </Button></td>
-                <td><Button variant='danger' onClick={() => printList()} /></td>
               </tr>
               ))}
               {(student.courses.length == 0) ? 

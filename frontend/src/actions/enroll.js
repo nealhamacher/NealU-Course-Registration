@@ -38,10 +38,11 @@ const takeSeat = async({course}) => {
   }
 }
 
-const enroll = async ({student, courseToEnroll}) => {
+const enroll = async ({student, courseToEnroll, forceUpdate}) => {
   try {
     await addCourse({student: student, course: courseToEnroll});
-    await takeSeat({ course: courseToEnroll })
+    await takeSeat({ course: courseToEnroll });
+    forceUpdate();
 
   } catch (e) {
     terminal.log(e.message);

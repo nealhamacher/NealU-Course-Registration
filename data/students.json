@@ -1,10 +1,10 @@
 [
     {
         "id": 1,
-        "name": "Dwayne El Rocko Johnson",
-        "email": "dj@wwe.com",
-        "address": "1234 5th Street",
-        "courses": []
+        "name": "Testy Testerson",
+        "email": "test@nealu.ca",
+        "address": "7357 Trial Way",
+        "courses": [] 
     },
     {
         "id": 2,
@@ -15,13 +15,20 @@
     },
     {
         "id": 3,
+        "name": "Dwayne Le Rocher Johnson",
+        "email": "dj@wwe.com",
+        "address": "1234 5th Street",
+        "courses": []
+    },
+    {
+        "id": 4,
         "name": "Jebediah Sprinfield",
         "email": "oldjeb@sprinfield.us",
         "address": "742 Evergreen Terrace",
         "courses": []
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Curtis Jackson",
         "email": "fiddy@newyork.ny",
         "address": "Hell's Kitchen",
