@@ -11,7 +11,12 @@ const EnrollButton = ({ student, course, enrolledCourses }) => {
 
   if(enrolled) {
     return(
-      <Button variant='secondary'>Enrolled</Button>
+      <Button variant='warning'>Enrolled</Button>
+    )
+  }
+  if(course.capacity < 1) {
+    return(
+      <Button variant='secondary'>Course Full</Button>
     )
   }
   if(conflict) {

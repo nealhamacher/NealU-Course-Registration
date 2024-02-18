@@ -15,7 +15,6 @@ const unenroll = async ({student, courseToDrop}) => {
 
     const { data } = await axios.patch(url, postData, config);
     student.courses = student.courses.filter((course) => course != courseToDrop)
-    terminal.log(student.courses)
     return data.data;
   } catch (e) {
     terminal.log(e.message)

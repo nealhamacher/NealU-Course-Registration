@@ -60,8 +60,8 @@ function App() {
 
   return(
     <div className='App'>
-      <div className='navbar'>
-        <h1>Neal University Online Registration System</h1>
+      <div className='hdr'>
+        <h1 className='hdr-main'>Neal University Online Registration System</h1>
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             {shownStudent}

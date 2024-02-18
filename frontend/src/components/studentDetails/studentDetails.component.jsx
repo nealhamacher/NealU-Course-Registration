@@ -42,7 +42,7 @@ const StudentDetails = ({ student }) => {
               <td>{course}:00</td>
               <td><Button variant='warning' 
                     onClick={() => unenroll({student: student, courseToDrop: course})}>
-                  Unenroll
+                  Drop
                   </Button></td>
               </tr>
             ))}
