@@ -16,8 +16,9 @@ const dropCourse = async ({student, course}) => {
       }
     }
 
-    const _ = await axios.patch(url, course, config); //Open seat in database
-    student.courses = student.courses.filter(c => c != course) //Add seat in fe
+    const _ = await axios.patch(url, course, config);
+    student.courses = student.courses.filter(c => c != course) //Open seat in database
+    terminal.log(`length here ${student.courses.length}`)
     return;
   } catch (e) {
     terminal.log(e.message)
@@ -47,10 +48,12 @@ const freeSeat = async ({course}) => {
   }
 }
 
-const drop = async ({student, courseToDrop}) => {
+const drop = async ({student, courseToDrop, forceUpdate}) => {
   try {
     await dropCourse({student: student, course: courseToDrop});
     await freeSeat({course: courseToDrop});
+    terminal.log(`length in drop: ${student.courses.length}`)
+    forceUpdate;
     
   } catch (e) {
     terminal.log(e.message);

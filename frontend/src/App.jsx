@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client'
 import axios from 'axios'
 import {
   useQuery,
@@ -10,7 +9,6 @@ import {
 } from '@tanstack/react-query'
 
 import CourseRegistration from './components/courseRegistration/courseRegistration.component';
-import NavBar from './components/navBar/navbar.component';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -24,7 +22,9 @@ function App() {
   const [courses, setCourses] = useState([]);
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState("")
-  
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
+
   /**
    * Gets courses from backend
    */
@@ -61,9 +61,9 @@ function App() {
   return(
     <div className='App'>
       <div className='hdr'>
-        <h1 className='hdr-main'>Neal University Online Registration System</h1>
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <h1 className='title'>Neal University Online Registration System</h1>
+        <Dropdown class='student-dropdown'>
+          <Dropdown.Toggle variant="light" id="dropdown-basic">
             {shownStudent}
           </Dropdown.Toggle>
           <Dropdown.Menu className='dropdown'>
@@ -72,16 +72,21 @@ function App() {
             ))}
           </Dropdown.Menu>
         </Dropdown>
+      </div>
+      <div className='main'>
           <Tabs defaultActiveKey="student-details" fill>
             <Tab eventKey="student-details" title="Student Info">
-              <StudentDetails student={selectedStudent} />
+              <div className='content'>
+                <StudentDetails student={selectedStudent} forceUpdate={forceUpdate}/>
+              </div>
             </Tab>
             <Tab eventKey="course-registration" title="Course Registration">
-              <CourseRegistration courseList={courses} student={selectedStudent} />
+              <div className='content'>
+                <CourseRegistration courseList={courses} student={selectedStudent} />
+              </div>
             </Tab>
           </Tabs>
       </div>
-
     </div>
   )
 }

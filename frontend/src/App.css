@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hdr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(128, 31, 31);
+    color: gold;
+    margin-bottom: 10px;
+    width: 100vw;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    font-family:'Graduate';
+    
+}
+
+.student-dropdown {
+    margin-right: 50px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin: 10px;
+}
+
+h2 {
+    border-bottom: solid;
+    border-width: 1px;
+}

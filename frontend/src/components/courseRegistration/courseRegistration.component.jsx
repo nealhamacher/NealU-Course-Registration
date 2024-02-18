@@ -1,6 +1,8 @@
 import Table from 'react-bootstrap/Table';
 import EnrollButton from './enrollButton.component';
 
+import './courseRegistration.styles.css'
+
 const CourseRegistration = ({ courseList, student }) => {
   if(student == "") {
     return (
@@ -13,6 +15,7 @@ const CourseRegistration = ({ courseList, student }) => {
   return (
     <div className='course-registration'>
       <h2>Course Registration</h2>
+      <h5>Offered Courses</h5>
       <Table className='course-table' striped bordered hover>
         <thead className='course-table-hdr'>
           <tr>
