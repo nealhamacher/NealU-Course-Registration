@@ -12,7 +12,6 @@ const getStudents = async (req, res) => {
 
 const addStudent = async (req, res) => {
     const info = req.body;
-    console.log(info)
     try {
         const student = await addStudentToRepo(info);
         res.status(200).send(student);

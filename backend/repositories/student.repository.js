@@ -35,7 +35,7 @@ const addCourseToStudentInRepo = async (id, course) => {
 const dropCourseFromStudentInRepo = async (id, course) => {
     try {
         let student = await Student.findOne(id);
-        let modCourses = student.courses.filter(c => c !== course);
+        let modCourses = student.courses.filter(c => c != course);
         student = await Student.findOneAndUpdate(
             id,
             { courses: modCourses }
