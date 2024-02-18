@@ -12,5 +12,19 @@
         "email": "bro@telus.net",
         "address": "1337 Dude Street",
         "courses": [] 
+    },
+    {
+        "id": 3,
+        "name": "Jebediah Sprinfield",
+        "email": "oldjeb@sprinfield.us",
+        "address": "742 Evergreen Terrace",
+        "courses": []
+    },
+    {
+        "id": 4,
+        "name": "Curtis Jackson",
+        "email": "fiddy@newyork.ny",
+        "address": "Hell's Kitchen",
+        "courses": []
     }
 ]

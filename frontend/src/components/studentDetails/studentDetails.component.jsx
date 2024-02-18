@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import unenroll from '../../actions/unenroll';
+import drop from '../../actions/drop';
 
 const StudentDetails = ({ student }) => {
   if(student == "") {
@@ -36,16 +36,16 @@ const StudentDetails = ({ student }) => {
         <tbody className='enrolled-table-body'>
           {student.courses.map(course => (
             <tr>
-              <td>{course}</td>
-              <td>{course}</td>
-              <td>{course}</td>
-              <td>{course}:00</td>
+              <td>{course.id}</td>
+              <td>{course.name}</td>
+              <td>{course.dept}</td>
+              <td>{course.time}:00</td>
               <td><Button variant='warning' 
-                    onClick={() => unenroll({student: student, courseToDrop: course})}>
+                    onClick={() => drop({student: student, courseToDrop: course})}>
                   Drop
                   </Button></td>
-              </tr>
-            ))}
+            </tr>
+          ))}
           </tbody>
         </Table>
         </div>

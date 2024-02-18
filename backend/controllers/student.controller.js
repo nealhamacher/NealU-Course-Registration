@@ -23,7 +23,8 @@ const addStudent = async (req, res) => {
 
 const addCourseToStudent = async (req, res) => {
     const id = { id : req.params.id };
-    const course = req.body.course;
+    const course = req.body;
+    console.log(course)
     try {
         const student = await addCourseToStudentInRepo (
             id,
