@@ -8,13 +8,13 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 
+import StudentDetails from './components/studentDetails/studentDetails.component';
 import CourseRegistration from './components/courseRegistration/courseRegistration.component';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import './App.css'
-import StudentDetails from './components/studentDetails/studentDetails.component';
 
 const queryClient = new QueryClient();
 

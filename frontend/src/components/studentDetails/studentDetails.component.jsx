@@ -21,46 +21,60 @@ const StudentDetails = ({ student, forceUpdate }) => {
     };
     return (
       <div className='student-details'>
+        <div className='student-hdr'>
         <h2>Student Information</h2>
-        <h5>Name</h5>
+        </div>
+        <div className='student-section'>
+        <h5>Name:</h5>
         <p>{student.name}</p>
-        <h5>Student ID#</h5>
+        </div>
+        <div className='student-section'>
+        <h5>Student ID#:</h5>
         <p>{student.id}</p>
-        <h5>Email</h5>
+        </div>
+        <div className='student-section'>
+        <h5>Email:</h5>
         <p>{student.email}</p>
-        <h5>Address</h5>
+        </div>
+        <div className='student-section'>
+        <h5>Address:</h5>
         <p>{student.address}</p>
-        <h5>Enrolled Courses</h5>
-        <Table className='enrolled-table' striped bordered hover>
-         <thead className='enrolled-table-hdr'>
-            <tr>
-              <th>ID</th>
-              <th>Course Name</th>
-              <th>Department</th>
-              <th>Time</th>
-              <th>Drop Course</th>
-              <th>TEST</th>
-            </tr>
-        </thead>
-        <tbody className='enrolled-table-body'>
-          {student.courses.map(course => (
-            <tr key={course.id}>
-              <td>{course.id}</td>
-              <td>{course.name}</td>
-              <td>{course.dept}</td>
-              <td>{course.time}:00</td>
-              <td><Button variant='warning' 
+        </div>
+        <div className='student-section'>
+        <h5>Enrolled Courses:</h5>
+        <div className='enrolled-table'>
+          <Table striped bordered hover>
+            <thead className='enrolled-table-hdr'>
+              <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Department</th>
+                <th>Time</th>
+                <th>Drop Course</th>
+                <th>TEST</th>
+              </tr>
+            </thead>
+            <tbody className='enrolled-table-body'>
+              {student.courses.map(course => (
+                <tr key={course.id}>
+                <td>{course.id}</td>
+                <td>{course.name}</td>
+                <td>{course.dept}</td>
+                <td>{course.time}:00</td>
+                <td><Button variant='warning' 
                     onClick={() => drop({student: student, courseToDrop: course, forceUpdate: forceUpdate})}>
                   Drop
-                  </Button></td>
-              <td><Button variant='danger' onClick={() => printList()} /></td>
-            </tr>
-          ))}
-          {(student.courses.length == 0) ? 
-            <tr><td colSpan={5}>Not currently enrolled in any courses</td></tr> : <></>}
-          </tbody>
-        </Table>
+                </Button></td>
+                <td><Button variant='danger' onClick={() => printList()} /></td>
+              </tr>
+              ))}
+              {(student.courses.length == 0) ? 
+              <tr><td colSpan={5}>Not currently enrolled in any courses</td></tr> : <></>}
+            </tbody>
+          </Table>
         </div>
+        </div>
+      </div>
     )
   }
 }
