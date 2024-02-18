@@ -1,5 +1,5 @@
 # Neal Univeristy Course Registration System  
-A course registration system for 
+A course registration system for a fictional university.  Supports adding and dropping classes, and informs the user of scheduling conflicts or if a class is full. Built using MERN stack with bootstrap UI elements.
 
 ## To Run
 <ol>
@@ -13,3 +13,4 @@ A course registration system for
 <li>Start the backend with <strong>npm start</strong> from the backend directory. By default it runs on port 8000.
 <li>Start the frontend with <strong>npm run dev</strong> or <strong>npm start</strong> from the frontend directory. The default port for the front-end is port 3000</li>
 <li>Navigate to <strong>http://localhost:3000/</strong> in a web browser</li>
+</ol>
