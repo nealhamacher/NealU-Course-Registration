@@ -46,11 +46,11 @@ const StudentDetails = ({ student, forceUpdate }) => {
           <Table striped bordered hover>
             <thead className='enrolled-table-hdr'>
               <tr>
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Department</th>
-                <th>Time</th>
-                <th>Drop Course</th>
+                <th className='tcid'>ID</th>
+                <th className='tcname'>Course Name</th>
+                <th className='tcdept'>Department</th>
+                <th className='tctime'>Time</th>
+                <th className='tcdrop'>Drop</th>
               </tr>
             </thead>
             <tbody className='enrolled-table-body'>
@@ -60,7 +60,7 @@ const StudentDetails = ({ student, forceUpdate }) => {
                 <td>{course.name}</td>
                 <td>{course.dept}</td>
                 <td>{course.time}:00</td>
-                <td><Button variant='warning' 
+                <td className='td-btn'><Button variant='warning' 
                     onClick={() => drop({student: student, courseToDrop: course, forceUpdate: forceUpdate})}>
                   Drop
                 </Button></td>

@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
-import {terminal} from 'virtual:terminal'
 import enroll from '../../actions/enroll';
+
+import './courseRegistration.styles.css'
 
 
 const EnrollButton = ({ student, course, enrolledCourses, forceUpdate }) => {
@@ -14,7 +15,7 @@ const EnrollButton = ({ student, course, enrolledCourses, forceUpdate }) => {
   }
   else if(course.capacity < 1) {
     return(
-      <Button variant='secondary'>Course Full</Button>
+      <Button variant='secondary'>Full</Button>
     )
   }
   else if(conflict) {
@@ -25,8 +26,7 @@ const EnrollButton = ({ student, course, enrolledCourses, forceUpdate }) => {
   else {
     return (
       <Button variant='primary' onClick={() => enroll({student: student, 
-                                                courseToEnroll: course, 
-                                                forceUpdate: forceUpdate})}>
+          courseToEnroll: course, forceUpdate: forceUpdate})}>
         Enroll
       </Button>
     )

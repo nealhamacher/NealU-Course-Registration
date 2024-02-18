@@ -20,12 +20,12 @@ const CourseRegistration = ({ courseList, student, forceUpdate }) => {
           <Table striped bordered hover>
             <thead className='course-table-hdr'>
               <tr>
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Department</th>
-                <th>Time</th>
-                <th>Capacity</th>
-                <th>Enroll in Course</th>
+                <th className='tcid'>ID</th>
+                <th className='tcname'>Course Name</th>
+                <th className='tcdept'>Dept</th>
+                <th className='tctime'>Time</th>
+                <th className='tcseats'>Seats Left</th>
+                <th className='tcenroll'>Enroll</th>
               </tr>
             </thead>
             <tbody className='course-table-body'>
@@ -36,9 +36,11 @@ const CourseRegistration = ({ courseList, student, forceUpdate }) => {
                   <td>{course.dept}</td>
                   <td>{course.time}:00</td>
                   <td>{course.capacity}</td>
-                  <td><EnrollButton student={student} course={course} 
-                                    enrolledCourses={student.courses}
-                                    forceUpdate={forceUpdate} /></td>
+                  <td className='td-btn'>
+                    <EnrollButton student={student} course={course} 
+                      enrolledCourses={student.courses}
+                      forceUpdate={forceUpdate} />
+                  </td>
                 </tr>
               ))}
             </tbody>

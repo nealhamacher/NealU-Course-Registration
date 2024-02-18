@@ -1,10 +1,53 @@
 .enrolled-table {
     width: fit-content;
-    min-width: 50%
 }
-
 
 .student-section {
     border-bottom: groove;
     border-width: 0.25px;
+}
+
+.tcname {
+    width: 150px;
+}
+
+.tcdept {
+    width: 200px;
+}
+
+.tctime {
+    width: 75px;
+}
+
+.tcdrop {
+    width: 75px;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.td-btn {
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .enrolled-table {
+        font-size:smaller;
+    }
+    .btn.btn-primary{
+        font-size: smaller;
+    }
+    .btn.btn-secondary{
+        font-size: smaller;
+    }
+    .btn.btn-danger{
+        font-size: smaller;
+    }
+    .btn.btn-warning{
+        font-size: smaller;
+    }
+    .btn.btn-primary{
+        font-size: smaller;
+    }
 }

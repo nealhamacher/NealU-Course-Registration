@@ -11,9 +11,12 @@ const addCourse = async({student, course}) => {
       }
     }
 
-    const _ = await axios.patch(url, course, config);
-    student.courses.push(course);
-    
+    const success = await axios.patch(url, course, config);
+    if (success) { //Add course to front-end object and sort
+      student.courses.push(course);
+      student.courses.sort((a,b) => a.id > b.id); 
+    };
+
     return;
   } catch (e) {
     throw Error(e);

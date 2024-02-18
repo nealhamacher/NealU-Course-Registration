@@ -29,12 +29,26 @@ body {
 .title {
     display: flex;
     justify-content: flex-start;
-    font-family:'Graduate';
+    font-family: 'Graduate';
     
 }
 
-.dropdown {
-    margin-right: 100px;
+.student-select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#student {
+    font-family: 'Graduate';
+    align-items: center;
+}
+
+#dropdown-basic {
+    min-width: 250px;
+    text-align: right;
 }
 
 .main {
@@ -50,4 +64,13 @@ body {
 h2 {
     border-bottom: double;
     border-width: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+    .hdr {
+        flex-direction: column;
+    }
+    .nav.nav-tabs.nav-fill {
+        width: 100vw;
+    }
 }

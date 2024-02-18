@@ -16,8 +16,10 @@ const dropCourse = async ({student, course}) => {
       }
     }
 
-    const _ = await axios.patch(url, course, config);
-    student.courses = student.courses.filter(c => c != course) //Open seat in database
+    const success = await axios.patch(url, course, config);
+    if (success) {
+      student.courses = student.courses.filter(c => c != course) //Open seat in database
+    };
     return;
   } catch (error) {
     throw Error(error)

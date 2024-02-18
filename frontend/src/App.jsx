@@ -62,27 +62,30 @@ function App() {
     <div className='App'>
       <div className='hdr'>
         <h1 className='title'>Neal University Online Registration System</h1>
-        <Dropdown class='student-dropdown'>
-          <Dropdown.Toggle variant="light" id="dropdown-basic">
-            {shownStudent}
-          </Dropdown.Toggle>
-          <Dropdown.Menu className='dropdown'>
-            {students.map(student => (
-              <Dropdown.Item onClick={()=>setSelectedStudent(student)}>
-                {student.name}
-              </Dropdown.Item>
-              ))}
-          </Dropdown.Menu>
-        </Dropdown>
+        <div className='student-select'>
+          <h5 id='student'>Student:</h5>
+          <Dropdown class='student-dropdown'>
+            <Dropdown.Toggle variant="light" id="dropdown-basic">
+              {shownStudent}
+            </Dropdown.Toggle>
+            <Dropdown.Menu className='dropdown'>
+              {students.map(student => (
+                <Dropdown.Item onClick={()=>setSelectedStudent(student)}>
+                  {student.name}
+                </Dropdown.Item>
+                ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </div>
       <div className='main'>
           <Tabs defaultActiveKey="student-details" fill>
-            <Tab eventKey="student-details" title="Student Info">
+            <Tab eventKey="student-details" title="Student Info" className='tab'>
               <div className='content'>
                 <StudentDetails student={selectedStudent} forceUpdate={forceUpdate}/>
               </div>
             </Tab>
-            <Tab eventKey="course-registration" title="Course Registration">
+            <Tab eventKey="course-registration" title="Course Registration" className='tab'>
               <div className='content'>
                 <CourseRegistration courseList={courses} student={selectedStudent} forceUpdate={forceUpdate} />
               </div>
