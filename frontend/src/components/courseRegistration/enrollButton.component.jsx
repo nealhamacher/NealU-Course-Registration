@@ -5,7 +5,7 @@ import './courseRegistration.styles.css'
 
 /**
  * Enrollment button for course registration view
- * @param 
+ * @param  param0 
  * @returns 
  */
 const EnrollButton = ({ student, course, enrolledCourses, triggerUpdate }) => {
