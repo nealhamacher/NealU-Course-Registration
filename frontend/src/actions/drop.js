@@ -8,7 +8,7 @@ import terminal from 'virtual:terminal'
  */
 const dropCourse = async ({student, course}) => {
   try {
-    const url = `http://localhost:8000/students/dropCourse/${student.id}`;
+    const url = `https://neal-university.onrender.com/dropCourse/${student.id}`;
 
     const config = {
       headers: {
@@ -36,7 +36,7 @@ const dropCourse = async ({student, course}) => {
  */
 const freeSeat = async ({course, courseList}) => {
   try {
-    const url = `http://localhost:8000/courses/drop/${course.id}`;
+    const url = `https://neal-university.onrender.com/courses/drop/${course.id}`;
 
     const config = {
       headers: {

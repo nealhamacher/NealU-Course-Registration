@@ -8,7 +8,7 @@ import axios from 'axios';
 const addCourse = async({student, course}) => {
   try {
     //Add in database
-    const url = `http://localhost:8000/students/addCourse/${student.id}`;
+    const url = `https://neal-university.onrender.com/addCourse/${student.id}`;
 
     const config = {
       headers: {
@@ -39,7 +39,7 @@ const addCourse = async({student, course}) => {
 const takeSeat = async({course}) => {
   try {
     //Update on back-end/database
-    const url = `http://localhost:8000/courses/enroll/${course.id}`;
+    const url = `https://neal-university.onrender.com/enroll/${course.id}`;
 
     const config = {
       headers: {

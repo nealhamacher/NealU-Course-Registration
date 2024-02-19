@@ -21,7 +21,7 @@ function App() {
   //Gets courses from backend
   useEffect (() => {
     const fetchCourses = async () => {
-      const response = await axios.get("http://localhost:8000/courses");
+      const response = await axios.get("https://neal-university.onrender.com/courses");
       setCourses(response.data)
       console.log(response.data)
     };
@@ -32,7 +32,7 @@ function App() {
   //Gets students from backend
   useEffect (() => {
     const fetchStudents = async () => {
-      const response = await axios.get("http://localhost:8000/students");
+      const response = await axios.get("https://neal-university.onrender.com/students");
       setStudents(response.data)
       console.log(response.data)
     };
