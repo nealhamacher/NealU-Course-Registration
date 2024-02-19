@@ -1,24 +1,24 @@
 [
     {
         "id": 1,
+        "name": "Dwayne Le Rocher Johnson",
+        "email": "dj@wwe.com",
+        "address": "1234 5th Street",
+        "courses": []
+    },
+    {
+        "id": 2,
         "name": "Testy Testerson",
         "email": "test@nealu.ca",
         "address": "7357 Trial Way",
         "courses": [] 
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Brody Broksi",
         "email": "bro@telus.net",
         "address": "1337 Dude Street",
         "courses": [] 
-    },
-    {
-        "id": 3,
-        "name": "Dwayne Le Rocher Johnson",
-        "email": "dj@wwe.com",
-        "address": "1234 5th Street",
-        "courses": []
     },
     {
         "id": 4,

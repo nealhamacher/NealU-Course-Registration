@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 mongoose.set("strictQuery", true);
 
 const connectDB = async () => {
-    const url = `mongodb://localhost:27017/nealu`;
+    const url = `${process.env.DATABASE}`;
     try {
         const connection = mongoose.connect(url);
         console.log("Successfully connected to database.");

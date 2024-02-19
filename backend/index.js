@@ -4,6 +4,9 @@ import cors from "cors";
 import connectDB from "./database/database.js";
 import studentRouter from "./routes/student.route.js";
 import courseRouter from "./routes/course.route.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = 8000;
