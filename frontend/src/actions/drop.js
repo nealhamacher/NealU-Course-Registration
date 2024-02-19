@@ -8,7 +8,7 @@ import terminal from 'virtual:terminal'
  */
 const dropCourse = async ({student, course}) => {
   try {
-    const url = `https://neal-university.onrender.com/dropCourse/${student.id}`;
+    const url = `https://neal-university.onrender.com/students/dropCourse/${student.id}`;
 
     const config = {
       headers: {
