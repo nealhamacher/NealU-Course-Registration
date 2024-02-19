@@ -56,6 +56,11 @@ const freeSeat = async ({course, courseList}) => {
   }
 }
 
+/**
+ * Removes a student from a course and frees up a seat
+ * @param {} student to enroll, course to drop, list of courses, and cue to
+ *                   trigger rerender of react elements
+ */
 const drop = async ({student, courseToDrop, courseList, triggerUpdate}) => {
   try {
     await dropCourse({student: student, course: courseToDrop});
