@@ -1,4 +1,4 @@
-# Neal Univeristy Course Registration System  
+# Neal University Course Registration System  
 A course registration system for a fictional university.  Supports adding and dropping classes, and informs the user of scheduling conflicts or if a class is full. Built using MERN stack; vite and bootstrap were used in the front-end.  Designed to minimize back-and-forth between front-end and back-end, so most updates are sent to the back-end and then updated in the front-end (the original database is only queried when first visiting the front-end site, and there is no consideration for concurrent users).
 
 ## To Run
