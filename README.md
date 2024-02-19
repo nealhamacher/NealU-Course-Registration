@@ -1,7 +1,10 @@
 # Neal University Course Registration System  
 A course registration system for a fictional university.  Supports adding and dropping classes, and informs the user of scheduling conflicts or if a class is full. Built using MERN stack; vite and bootstrap were used in the front-end.  Designed to minimize back-and-forth between front-end and back-end, so most updates are sent to the back-end and then updated in the front-end (the original database is only queried when first visiting the front-end site, and there is no consideration for concurrent users).
 
-## To Run
+## To Run (Latest Version)
+The back-end and database are currently deployed, to run the front-end, clone the frontend foler, navigate into it, and run <strong>npm install</strong> to install dependencies.  Start the server with <strong>npm run dev</strong> or <strong>npm start</strong> and once the app starts, navigate to http://localhost:3000
+
+## To Run (Local Version)
 <ol>
   <li>Clone the repository onto your computer. NPM and MongoDB are also required.</li>
   <li>Run npm install in both the frontend and back end directories.</li>
