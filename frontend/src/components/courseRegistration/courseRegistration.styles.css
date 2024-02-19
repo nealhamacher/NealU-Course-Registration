@@ -2,7 +2,6 @@
     width:fit-content;
 }
 
-
 td {
     vertical-align: middle;
 }
@@ -14,7 +13,6 @@ td {
 .tcenroll {
     width: 100px;
 }
-
 
 @media only screen and (max-width: 768px) {
     .course-table {

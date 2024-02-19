@@ -1,12 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import {
-  useQuery,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
 
 import StudentDetails from './components/studentDetails/studentDetails.component';
 import CourseRegistration from './components/courseRegistration/courseRegistration.component';
@@ -16,18 +10,15 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import './App.css'
 
-const queryClient = new QueryClient();
-
 function App() {
   const [courses, setCourses] = useState([]);
   const [students, setStudents] = useState([]);
-  const [selectedStudent, setSelectedStudent] = useState("")
+  const [selectedStudent, setSelectedStudent] = useState(null)
   const [, updateState] = React.useState();
   const triggerUpdate = React.useCallback(() => updateState({}), []);
 
-  /**
-   * Gets courses from backend
-   */
+  
+  //Gets courses from backend
   useEffect (() => {
     const fetchCourses = async () => {
       const response = await axios.get("http://localhost:8000/courses");
@@ -37,9 +28,8 @@ function App() {
     fetchCourses();
   }, [])
 
-  /**
-   * Gets students from backend
-   */
+ 
+  //Gets students from backend
   useEffect (() => {
     const fetchStudents = async () => {
       const response = await axios.get("http://localhost:8000/students");
@@ -50,8 +40,8 @@ function App() {
   }, [])
 
   //Controls which student name is shown when dropdown button is selected
-  let shownStudent = ""
-  if (selectedStudent == "") {
+  let shownStudent = null
+  if (!selectedStudent) {
     shownStudent = "Select Student"
   }
   else {
@@ -98,48 +88,3 @@ function App() {
 }
 
 export default App
-
-/*
-function App() {
-  const [courses, setCourses] = useState(-1);
-  
-  //const { status, courses, error, isFetching } = useCourses();
-
-  return(
-    <div className='App'>
-      <QueryClientProvider client = {queryClient}>
-        <Courses setCourses={setCourses} />
-        <p>Hello</p>
-      </QueryClientProvider>
-    </div>
-  )
-}
-
-function useCourses() {
-  return useQuery({
-    queryKey: ['course'],
-    queryFn: async () => {
-      const { courseData } = await axios.get("http://localhost:8000/courses")
-      return courseData;
-    }
-  })
-}
-
-function Courses( {setCourses} ) {
-  const queryClient = useQueryClient();
-  const { status, data, error, isFetching } = useCourses()
-
-  if (status) return "loading..."
-
-  else if (error) return <span>Error: {error.message}</span>
-
-  else return (
-    <div> 
-    {data.map (course => (
-      <p>HELLO {course.id}</p>
-    ))}</div>
-  )
-}
-
-export default App;
-*/

@@ -5,8 +5,10 @@ import drop from '../../actions/drop';
 
 import './studentDetails.styles.css';
 
-const StudentDetails = ({ student, courseList, triggerUpdate }) => {
-  if(student == "") {
+const StudentDetails = ({ student, courseList, triggerUpdate, setSelectedStudent }) => {
+  
+  //If no student selected
+  if(!student) {
     return (
       <div className="student-details-blank">
         <h2>Select a student to display information</h2>
@@ -58,7 +60,7 @@ const StudentDetails = ({ student, courseList, triggerUpdate }) => {
                 <td>{course.time}:00</td>
                 <td className='td-btn'><Button variant='warning' 
                     onClick={() => drop({student: student, courseToDrop: course, 
-                        courseList: courseList, triggerUpdate: triggerUpdate})}>
+                        courseList: courseList, triggerUpdate: triggerUpdate, setSelectedStudent: setSelectedStudent})}>
                   Drop
                 </Button></td>
               </tr>

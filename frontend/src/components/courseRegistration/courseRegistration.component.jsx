@@ -10,7 +10,7 @@ import './courseRegistration.styles.css'
  * @returns React code
  */
 const CourseRegistration = ({ courseList, student, triggerUpdate }) => {
-  if(student == "") {
+  if(!student) {
     return (
       <div className="course-registration-blank">
         <h2>Select a student to display course information</h2>

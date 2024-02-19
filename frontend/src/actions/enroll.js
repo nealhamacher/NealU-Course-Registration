@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+/**
+ * Adds a course to a students list of courses
+ * @param {student, course} student to enroll and course to add
+ * @returns N/A
+ */
 const addCourse = async({student, course}) => {
   try {
+    //Add in database
     const url = `http://localhost:8000/students/addCourse/${student.id}`;
 
     const config = {
@@ -11,6 +17,7 @@ const addCourse = async({student, course}) => {
     }
 
     const success = await axios.patch(url, course, config);
+
     if (success.status == 200) { //Add course to front-end object and sort
       student.courses.push(course);
       student.courses.sort((a,b) => a.id > b.id); 
@@ -24,8 +31,14 @@ const addCourse = async({student, course}) => {
   }
 }
 
+/**
+ * Reduces the available seats in a course by one
+ * @param {course} course to take a seat in
+ * @returns 
+ */
 const takeSeat = async({course}) => {
   try {
+    //Update on back-end/database
     const url = `http://localhost:8000/courses/enroll/${course.id}`;
 
     const config = {
@@ -36,6 +49,7 @@ const takeSeat = async({course}) => {
 
     const success = await axios.patch(url, {}, config);
     
+    //Update in front-end
     if (success.status == 200) {
       course.capacity -= 1;
       return;
@@ -48,6 +62,11 @@ const takeSeat = async({course}) => {
   }
 }
 
+/**
+ * Enrolls a student in a course
+ * @param {*} student to enroll, course to enroll in, cue to trigger component 
+ *            rerender
+ */
 const enroll = async ({student, courseToEnroll, triggerUpdate}) => {
   try {
     await takeSeat({ course: courseToEnroll });

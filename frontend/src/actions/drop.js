@@ -49,7 +49,7 @@ const freeSeat = async ({course, courseList}) => {
       targetCourse.capacity +=1;
       return;
     } else {
-      throw Error(`Error from back-end when freeing seat`)
+      throw Error(`Error from back-end when freeing seat in database`)
     }
   } catch (error) {
     throw Error(error);

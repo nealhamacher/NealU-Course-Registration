@@ -4,9 +4,10 @@ import enroll from '../../actions/enroll';
 import './courseRegistration.styles.css'
 
 /**
- * Enrollment button for course registration view
- * @param  param0 
- * @returns 
+ * Enrollment button for course registration
+ * @param {*} student to enroll, course to enroll in, list of course, and update
+ *            cue
+ * @returns Conditional button showing enrollment status
  */
 const EnrollButton = ({ student, course, enrolledCourses, triggerUpdate }) => {
   const enrolled = enrolledCourses.some(enrolled => enrolled._id == course._id);
