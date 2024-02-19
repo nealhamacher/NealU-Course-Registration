@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { terminal } from 'virtual:terminal'
+import terminal from 'virtual:terminal'
 
 /**
  * Removes a course from a students course list
@@ -15,12 +15,15 @@ const dropCourse = async ({student, course}) => {
         "Content-Type": "application/json"
       }
     }
+    const success = await axios.patch(url, course, config); //Drop course in db
+    //Drop course in front-end
+    if (success.status == 200) {
+      student.courses = student.courses.filter(c => c.id != course.id)
+      return;
+    } else {
+      throw Error("Error from back-end when removing course")
+    }
 
-    const success = await axios.patch(url, course, config);
-    if (success) {
-      student.courses = student.courses.filter(c => c != course) //Open seat in database
-    };
-    return;
   } catch (error) {
     throw Error(error)
   }
@@ -31,7 +34,7 @@ const dropCourse = async ({student, course}) => {
  * @param course The course to open a seat in
  * @returns N/A 
  */
-const freeSeat = async ({course}) => {
+const freeSeat = async ({course, courseList}) => {
   try {
     const url = `http://localhost:8000/courses/drop/${course.id}`;
 
@@ -40,20 +43,24 @@ const freeSeat = async ({course}) => {
         "Content-Type": "application/json"
       }
     };
-
-    const _ = await axios.patch(url, {}, config);
-    course.capacity += 1;
-    return;
+    const success = await axios.patch(url, {}, config);
+    if (success.status == 200) {
+      const targetCourse = courseList.find(c => c.id == course.id);
+      targetCourse.capacity +=1;
+      return;
+    } else {
+      throw Error(`Error from back-end when freeing seat`)
+    }
   } catch (error) {
     throw Error(error);
   }
 }
 
-const drop = async ({student, courseToDrop, forceUpdate}) => {
+const drop = async ({student, courseToDrop, courseList, triggerUpdate}) => {
   try {
     await dropCourse({student: student, course: courseToDrop});
-    await freeSeat({course: courseToDrop});
-    forceUpdate();
+    await freeSeat({course: courseToDrop, courseList: courseList});
+    triggerUpdate();
     
   } catch (error) {
     console.error(`Error dropping course: ${error.message}`);

@@ -3,7 +3,13 @@ import EnrollButton from './enrollButton.component';
 
 import './courseRegistration.styles.css'
 
-const CourseRegistration = ({ courseList, student, forceUpdate }) => {
+/**
+ * React component for course list and registration main view
+ * @param courseList list of courses from database
+ * @param student current student from database 
+ * @returns React code
+ */
+const CourseRegistration = ({ courseList, student, triggerUpdate }) => {
   if(student == "") {
     return (
       <div className="course-registration-blank">
@@ -39,7 +45,7 @@ const CourseRegistration = ({ courseList, student, forceUpdate }) => {
                   <td className='td-btn'>
                     <EnrollButton student={student} course={course} 
                       enrolledCourses={student.courses}
-                      forceUpdate={forceUpdate} />
+                      triggerUpdate={triggerUpdate} />
                   </td>
                 </tr>
               ))}

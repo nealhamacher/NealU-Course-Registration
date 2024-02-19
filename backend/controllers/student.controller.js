@@ -42,7 +42,7 @@ const addCourseToStudent = async (req, res) => {
 
 const dropCourseFromStudent = async (req, res) => {
     const id = { id: req.params.id};
-    const course = req.body.course
+    const course = req.body
     try {
         const student = await dropCourseFromStudentInRepo (
             id,

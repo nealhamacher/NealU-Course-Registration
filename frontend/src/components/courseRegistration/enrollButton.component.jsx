@@ -3,8 +3,12 @@ import enroll from '../../actions/enroll';
 
 import './courseRegistration.styles.css'
 
-
-const EnrollButton = ({ student, course, enrolledCourses, forceUpdate }) => {
+/**
+ * Enrollment button for course registration view
+ * @param 
+ * @returns 
+ */
+const EnrollButton = ({ student, course, enrolledCourses, triggerUpdate }) => {
   const enrolled = enrolledCourses.some(enrolled => enrolled._id == course._id);
   const conflict = enrolledCourses.some(enrolled => enrolled.time == course.time);
 
@@ -26,7 +30,7 @@ const EnrollButton = ({ student, course, enrolledCourses, forceUpdate }) => {
   else {
     return (
       <Button variant='primary' onClick={() => enroll({student: student, 
-          courseToEnroll: course, forceUpdate: forceUpdate})}>
+          courseToEnroll: course, triggerUpdate: triggerUpdate})}>
         Enroll
       </Button>
     )

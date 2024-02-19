@@ -23,7 +23,7 @@ function App() {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState("")
   const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
+  const triggerUpdate = React.useCallback(() => updateState({}), []);
 
   /**
    * Gets courses from backend
@@ -82,12 +82,13 @@ function App() {
           <Tabs defaultActiveKey="student-details" fill>
             <Tab eventKey="student-details" title="Student Info" className='tab'>
               <div className='content'>
-                <StudentDetails student={selectedStudent} forceUpdate={forceUpdate}/>
+                <StudentDetails student={selectedStudent} courseList={courses} triggerUpdate={triggerUpdate}/>
               </div>
             </Tab>
             <Tab eventKey="course-registration" title="Course Registration" className='tab'>
               <div className='content'>
-                <CourseRegistration courseList={courses} student={selectedStudent} forceUpdate={forceUpdate} />
+                <CourseRegistration courseList={courses} student={selectedStudent} 
+                    triggerUpdate={triggerUpdate} />
               </div>
             </Tab>
           </Tabs>

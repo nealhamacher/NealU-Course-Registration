@@ -2,11 +2,10 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import drop from '../../actions/drop';
-import { terminal } from 'virtual:terminal'
 
 import './studentDetails.styles.css';
 
-const StudentDetails = ({ student, forceUpdate }) => {
+const StudentDetails = ({ student, courseList, triggerUpdate }) => {
   if(student == "") {
     return (
       <div className="student-details-blank">
@@ -15,10 +14,7 @@ const StudentDetails = ({ student, forceUpdate }) => {
     )
   }
   else {
-    const printList = () => {
-      student.courses.forEach(element => {terminal.log(element)}
-      )
-    };
+
     return (
       <div className='student-details'>
         <div className='student-hdr'>
@@ -61,7 +57,8 @@ const StudentDetails = ({ student, forceUpdate }) => {
                 <td>{course.dept}</td>
                 <td>{course.time}:00</td>
                 <td className='td-btn'><Button variant='warning' 
-                    onClick={() => drop({student: student, courseToDrop: course, forceUpdate: forceUpdate})}>
+                    onClick={() => drop({student: student, courseToDrop: course, 
+                        courseList: courseList, triggerUpdate: triggerUpdate})}>
                   Drop
                 </Button></td>
               </tr>
