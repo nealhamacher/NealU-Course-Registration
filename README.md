@@ -2,7 +2,8 @@
 A course registration system for a fictional university.  Supports adding and dropping classes, and informs the user of scheduling conflicts or if a class is full. Built using MERN stack; vite and bootstrap were used in the front-end.  Designed to minimize back-and-forth between front-end and back-end, so most updates are sent to the back-end and then updated in the front-end (the original database is only queried when first visiting the front-end site, and there is no consideration for concurrent users).
 
 ## To Run (Latest Version)
-The web app is deployed, click the github pages link on the right or navigate to https://nealhamacher.github.io/NealU-Course-Registration/
+The web app is deployed, click the github pages link on the right or navigate to https://nealhamacher.github.io/NealU-Course-Registration/   
+Please note that, due to the backend taking some time to spin up after a period of activity, it may take ~1 minute for the student list dropdown to populate on the first visit.
 
 ## To Run (Local Version)
 <ol>
